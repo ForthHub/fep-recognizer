@@ -20,9 +20,11 @@ to **recognize** a _lexeme_: to produce a _token_ and its _token descriptor_ for
 
 **recognizer**: a _Forth definition_ that recognizes a _lexeme_.
 
-**simple recognizer**: a recognizer that may produce _tokens_ with some the same _token descriptor_ only.
+**simple recognizer**: a _recognizer_ that may produce _tokens_ with some the same _token descriptor_ only.
 
-**compound recognizer**: a recognizer that can produce _tokens_ with the different _token descriptors_ .
+**compound recognizer**: a _recognizer_ that can produce _tokens_ with the different _token descriptors_.
+
+**active recognizer**: a _recognizer_ that is used by the text interpreter to translate a _lexeme_.
 
 
 ### XY.3.1 Data types
