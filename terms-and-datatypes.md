@@ -2,15 +2,19 @@
 
 **lexeme**: a syntactic unit of a _program_ (a Forth source code); (unless otherwise noted, it is a sequence of non-blank characters delimited by a blank).
 
-to **translate** a _lexeme_: to perform the _compilation semantics_ or the _interpretation semantics_ for the _lexeme_.
+to **interpret** a _lexeme_: to determine the _interpretation semantics_ for the _lexeme_ in the current dynamic context and perform them.
+
+to **compile** a _lexeme_: to determine the _compilation semantics_ for the _lexeme_ in the current dynamic context and perform them.
+
+to **translate** a _lexeme_: to _compile_ or to _interpret_ the _lexeme_.
 
 **dynamic context** of a _lexeme_: information that is available at the time the _lexeme_ is _translated_.
 
-**token**:  a tuple of _data objects_ that represents a _lexeme_ in its _dynamic context_ (see also _data type_ and [3.1 Data types](https://forth-standard.org/standard/usage#table:datatypes)).
+**token**: a tuple of _data objects_ that determines the _interpretation semantics_ and the _compilation semantics_ for a _lexeme_ in its _dynamic context_.
 
-to **translate** a _token_:  to produce an effect of _translating_ the _lexeme_ which this _token_ represents, in some mix of the _dynamic context_ of this _lexeme_ and the current _dynamic context_.
+to **translate** a _token_: to perform the _interpretation semantics_ or the _complication semantics_ that are determined by the token.
 
-**token descriptor**: an _implementation dependent_ _data object_  (a set of information) that describes _translating_ a _token_; also a value that identifies this _data object_.
+**token descriptor**: an _implementation dependent_ _data object_ (a set of information) that describes _translating_ a _token_; also a value that identifies this _data object_.
 
 to **recognize** a _lexeme_: to produce a _token_ and its _token descriptor_ for given _lexeme_ in the current _dynamic context_.
 
