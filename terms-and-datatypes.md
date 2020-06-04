@@ -24,7 +24,7 @@ to **recognize** a _lexeme_: to produce a _token_ and its _token descriptor_ for
 
 **compound recognizer**: a _recognizer_ that can produce _tokens_ with the different _token descriptors_.
 
-**active recognizer**: a _recognizer_ that is used by the text interpreter to translate a _lexeme_.
+**current recognizer**: a _recognizer_ that is currently used by the text interpreter to translate a _lexeme_.
 
 
 ### XY.3.1 Data types
