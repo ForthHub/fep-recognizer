@@ -3,7 +3,8 @@
 
 **FEP** stands for Forth Enchancement Proposal, after PEP — Python Enchancement Proposal.
 
-Draft. Under construction. It should be presented as RfD after completion.
+Draft. Under construction.
+Perhas it should be presented as RfD after completion (although, "RfD" term is not used any more in the [revised Proposals Process](https://forth-standard.org/standard/process#contribution-71)).
 
 
 ### Intention
