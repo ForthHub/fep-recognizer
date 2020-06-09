@@ -20,7 +20,10 @@ to **compile** a _token_: to perform the _compilation semantics_ that are determ
 
 to **translate** a _token_: to perform the _interpretation semantics_ or the _complication semantics_ that are determined by the token.
 
-**token descriptor**: an _implementation dependent_ _data object_ (a set of information) that describes _translating_ a _token_; also less formally and depending on context, a value that identifies this _data object_ or a Forth definition that just returns this value.
+**token descriptor object**: an _implementation dependent_ _data object_ (a set of information) that describes _translating_ a _token_.
+
+**token descriptor**: a value that identifies a _token descriptor object_;
+also, less formally and depending on context, a Forth definition that just returns this value.
 
 to **recognize** a _lexeme_: to produce a _token_ and its _token descriptor_ for given _lexeme_ in the current _dynamic context_.
 
@@ -38,14 +41,14 @@ to **recognize** a _lexeme_: to produce a _token_ and its _token descriptor_ for
 
 ### XY.3.1 Data types
 
-**Token descriptor identifiers** are implementation-dependent single-cell values that identify _token descriptors_.
+**Token descriptors** are implementation-dependent single-cell values that identify _token descriptor objects_.
 
 Append table 15.1 to table 3.1
 
 #### Table 15.1
 Symbol | Data type | Size on stack
 -- | -- | --
-tdi | token descriptor identifier | 1 cell
+td | token descriptor | 1 cell
 
 
 
