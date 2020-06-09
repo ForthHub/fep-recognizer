@@ -25,7 +25,9 @@ to **translate** a _token_: to perform the _interpretation semantics_ or the _co
 **token descriptor**: a value that identifies a _token descriptor object_;
 also, less formally and depending on context, a Forth definition that just returns this value.
 
-to **recognize** a _lexeme_: to produce a _token_ and its _token descriptor_ for given _lexeme_ in the current _dynamic context_.
+**fully qualified token**: a _token_ with its _token descriptor_.
+
+to **recognize** a _lexeme_: to produce a _fully qualified token_ for given _lexeme_ in the current _dynamic context_.
 
 **recognizer**: a _Forth definition_ that recognizes a _lexeme_.
 
