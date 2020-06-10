@@ -47,9 +47,9 @@ or a _token descriptor object_ itself.
 
 **Token descriptors** are implementation-dependent single-cell values that identify _token descriptor objects_.
 
-Append table 15.1 to table 3.1
+Append table XY.1 to table 3.1
 
-#### Table 15.1
+#### Table XY.1
 Symbol | Data type | Size on stack
 -- | -- | --
 td | token descriptor | 1 cell
