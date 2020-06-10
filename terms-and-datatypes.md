@@ -62,7 +62,7 @@ If the Recognizer word set is present, the following specification should be use
 - b. Translate the _lexeme_ (see XY.3.2.1);
 - c. If unsuccessful, an ambiguous condition exists (see 3.4.4).
 
-### XY.3.2.1 Translating
+#### XY.3.2.1 Translating
 
 - Recognize the _lexeme_ producing a _token_ and its _descriptor_;
   - perform the _current recognizer_ ;
