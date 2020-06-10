@@ -66,13 +66,11 @@ If the Recognizer word set is present, the following specification should be use
 
 #### XY.3.2.1 Translating
 
-- Recognize the _lexeme_ producing a _token_ and its _descriptor_;
-  - perform the _current recognizer_ ;
-- If successful, translate the _token_ according to the _descriptor_;
+- Recognize the _lexeme_ using the current recognizer and producing a _fully qualified token_;
+- If successful, translate the _token_ according to its _token descriptor_;
   - if interpreting, perform the _interpretation semantics_ that are determined by the token;
   - if compiling, perform the _complication semantics_ that are determined by the token;
-  
-(*under constraction*)
+
 
 
 ### XY.3.3 Contiguous regions
