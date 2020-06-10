@@ -77,8 +77,10 @@ If the Recognizer word set is present, the following specification should be use
 
 The regions of data space produced by the operations described in 3.3.3.2 Contiguous regions may be non-contiguous if the following words are executed between allocations. 
 
+ - `PERCEPTOR`
+ - `SET-PERCEPTOR`
+ - `SET-PERCEPTOR-BEFORE`
+ - `SET-PERCEPTOR-AFTER`
+ - `REVERT-PERCEPTOR`
+
 (the words are *under constraction*, see also [Issue #3](https://github.com/ForthHub/fep-recognizer/issues/3))
- - `SET-RECOGNIZER`
- - `SET-RECOGNIZER-BEFORE`
- - `SET-RECOGNIZER-AFTER`
- - `UNDO-RECOGNIZER`
