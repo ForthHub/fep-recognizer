@@ -41,7 +41,7 @@ or a _token descriptor object_ itself.
 
 
 
-## XY.16.3 Additional usage requirements
+## XY.3 Additional usage requirements
 
 ### XY.3.1 Data types
 
@@ -58,7 +58,7 @@ td | token descriptor | 1 cell
 
 ### XY.3.2 The Forth text interpreter
 
-If the Recognizer word set is present, the following specification should be used instead the specification in the section 3.4 begining with "a. Skip leading spaces" and up to sub-section "3.4.1".
+If the Recognizer word set is present, the following specification should be used instead the specification in the section 3.4 begining with "a. Skip leading spaces" and up to the sub-section "3.4.1".
 
 - a. Skip leading spaces and parse a _lexeme_ (see 3.4.1);
 - b. Recognize the _lexeme_ using the current recognizer and producing a _fully qualified token_;
