@@ -60,7 +60,7 @@ td | token descriptor | 1 cell
 
 If the Recognizer word set is present, the following specification should be used instead the specification in the section 3.4 begining with "a. Skip leading spaces" and up to sub-section "3.4.1".
 
-- a. Parse a _lexeme_ (see 3.4.1);
+- a. Skip leading spaces and parse a _lexeme_ (see 3.4.1);
 - b. Translate the _lexeme_ (see XY.3.2.1);
 - c. If unsuccessful, an ambiguous condition exists (see 3.4.4).
 
