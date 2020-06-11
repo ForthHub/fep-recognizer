@@ -68,11 +68,19 @@ td | token descriptor | 1 cell
 If the Recognizer word set is present, the following specification should be used instead the specification in the section 3.4 begining with "a. Skip leading spaces" and up to the sub-section "3.4.1".
 
 - a. Skip leading spaces and parse a _lexeme_ (see 3.4.1);
-- b. Recognize the _lexeme_ using the current recognizer and producing a _fully qualified token_;
+- b. Recognize the _lexeme_ using the perceptor and producing a _fully qualified token_;
   -  1\. if interpreting, according to the _token descriptor_, perform the _interpretation semantics_ that are determined by the _token_ and continue at a).
   -  2\. if compiling, according to the _token descriptor_, perform the _complication semantics_ that are determined by the _token_ and continue at a).
 - c. If unsuccessful, an ambiguous condition exists (see 3.4.4).
 
+#### XY.3.2.1 The default perceptor
+
+Initially the perceptor should recognize a lexeme in the following order
+
+- 1\. As the name of a local variable if the Locals word set is provided.
+- 2\. As the name of a Forth word according to the search order if the Search-Order word set is provided, or in the dictionary header space otherwise.
+- 3\. As a number according to [3.4.1.3](https://forth-standard.org/standard/usage#usage:numbers).
+- 4\. As other implementaton defined forms, if any.
 
 
 ### XY.3.3 Contiguous regions
