@@ -41,8 +41,11 @@ or a _token descriptor object_ itself.
 
 **compound recognizer**: a _recognizer_ that can produce _tokens_ with the different _token descriptors_.
 
-**current recognizer**: a _recognizer_ that is currently used by the text interpreter to translate a _lexeme_.
+**perceptor**: a _recognizer_ that is currently used by the text interpreter to translate a _lexeme_.
 
+**current recognizer**: the _perceptor_ (a synonym).
+
+**default recognizer**: a recognizer that the _perceptor_ is set to before the percepter is changed by a program (or after reverting such changes).
 
 
 ## XY.3 Additional usage requirements
