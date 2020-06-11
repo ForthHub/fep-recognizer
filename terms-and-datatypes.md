@@ -26,7 +26,7 @@ to **translate** a _token_: to _interpret_ the _token_ if interpreting, or to _c
 
 **resolver**: a _Forth definition_ that recognizes a _lexeme_ producing a _token_ and its _token translator_.
 
-**token descriptor object**: an _implementation dependent_ _data object_ (a set of information) that describes _translating_ a _token_.
+**token descriptor object**: an _implementation dependent_ _data object_ (a set of information) that describes how to interpret and how to compile a _token_.
 
 **token descriptor**: a value that identifies a _token descriptor object_;
 also, less formally and depending on context,
