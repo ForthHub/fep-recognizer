@@ -45,7 +45,7 @@ or a _token descriptor object_ itself.
 
 **current recognizer**: the _perceptor_ (a synonym).
 
-**default recognizer**: a recognizer that the _perceptor_ is set to before the percepter is changed by a program (or after reverting such changes).
+**default perceptor**: the _perceptor_ before it was changed by a program (or after reverting these changes).
 
 
 ## XY.3 Additional usage requirements
