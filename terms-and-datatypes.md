@@ -10,7 +10,7 @@ to **interpret** a _lexeme_: to perform the _interpretation semantics_ for the _
 
 to **compile** a _lexeme_: to perform the _compilation semantics_ for the _lexeme_ in the current dynamic context.
 
-to **translate** a _lexeme_: to _interpret_ the _lexeme_ or to _compile_ the _lexeme_.
+to **translate** a _lexeme_: to _interpret_ the _lexeme_ if interpreting, or to _compile_ the _lexeme_ if compiling.
 
 **dynamic context** of a _lexeme_: information that is available at the time the _lexeme_ is _translated_.
 
@@ -20,7 +20,11 @@ to **interpret** a _token_: to perform the _interpretation semantics_ that are d
 
 to **compile** a _token_: to perform the _compilation semantics_ that are determined by the token.
 
-to **translate** a _token_: to _interpret_ or to _compile_ the _token_.
+to **translate** a _token_: to _interpret_ the _token_ if interpreting, or to _compile_ the _token_ if compiling.
+
+**token translator**: a _Forth definition_ that translates a _token_.
+
+**resolver**: a _Forth definition_ that recognizes a _lexeme_ producing a _token_ and its _token translator_.
 
 **token descriptor object**: an _implementation dependent_ _data object_ (a set of information) that describes _translating_ a _token_.
 
