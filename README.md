@@ -25,7 +25,7 @@ A partial list (please add other links)
  - [Comparison of the terminology to some past proposals](https://gist.github.com/ruv/af796cece2ecd2ee541d883a04483dcc#file-11-comparision-to-some-past-versions-md)
 
 
-### Conents
+### Table of contents
 
 - [Terms definitions and data types](./terms-and-datatypes.md)
 
