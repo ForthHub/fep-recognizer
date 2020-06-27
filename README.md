@@ -20,6 +20,12 @@ A partial list (please add other links)
  - [Resolver API](https://github.com/ruv/forth-design-exp/blob/master/docs/resolver-api.md)
 
 
+### See also
+
+ - [Comparison of the terminology to some past proposals](https://gist.github.com/ruv/af796cece2ecd2ee541d883a04483dcc#file-11-comparision-to-some-past-versions-md)
+
+
 ### Conents
 
 - [Terms definitions and data types](./terms-and-datatypes.md)
+
