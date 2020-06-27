@@ -14,7 +14,9 @@ to **translate** a _lexeme_: to _interpret_ the _lexeme_ if interpreting, or to 
 
 **dynamic context** of a _lexeme_: information that is available at the time the _lexeme_ is _translated_.
 
-**token**: a tuple of _data objects_ that determines the _interpretation semantics_ and the _compilation semantics_ for a _lexeme_ in its _dynamic context_.
+**unqualified token**: a tuple of _data objects_ that determines the _interpretation semantics_ and the _compilation semantics_ for a _lexeme_ in its _dynamic context_.
+
+**token**: _unqualified token_ (a synonym, when it is clear from context).
 
 to **interpret** a _token_: to perform the _interpretation semantics_ that are determined by the token.
 
@@ -22,9 +24,11 @@ to **compile** a _token_: to perform the _compilation semantics_ that are determ
 
 to **translate** a _token_: to _interpret_ the _token_ if interpreting, or to _compile_ the _token_ if compiling.
 
-**token translator**: a _Forth definition_ that translates a _token_.
+**token translator**: a _Forth definition_ that translates a _token_;
+also, depending on context,
+an execution token for this Forth definition.
 
-**resolver**: a _Forth definition_ that recognizes a _lexeme_ producing a _token_ and its _token translator_.
+**resolver**: a _Forth definition_ that recognizes a _lexeme_ producing a tuple of a _token_ and its _token translator_.
 
 **token descriptor object**: an _implementation dependent_ _data object_ (a set of information) that describes how to interpret and how to compile a _token_.
 
@@ -33,19 +37,19 @@ also, less formally and depending on context,
 a Forth definition that just returns this value,
 or a _token descriptor object_ itself.
 
-**fully qualified token**: a _token_ with its _token descriptor_.
+**fully qualified token**: a tuple of a _token_ and its _token descriptor_.
 
 **recognizer**: a _Forth definition_ that recognizes a _lexeme_ producing a _fully qualified token_.
 
-**simple recognizer**: a _recognizer_ that may produce _tokens_ with some the same _token descriptor_ only.
+**simple recognizer**: a _recognizer_ that may produce the same _token descriptor_ only.
 
-**compound recognizer**: a _recognizer_ that can produce _tokens_ with the different _token descriptors_.
+**compound recognizer**: a _recognizer_ that can produce the different _token descriptors_.
 
-**perceptor**: a _recognizer_ that is currently used by the text interpreter to translate a _lexeme_.
+**perceptor**: a _recognizer_ that is currently used by the Forth text interpreter to translate a _lexeme_.
 
-**current recognizer**: the _perceptor_ (a synonym).
+**current recognizer**: the _perceptor_ (an unformal synonym).
 
-**default perceptor**: the _perceptor_ before it was changed by a program (or after reverting these changes).
+**default perceptor**: the _perceptor_ before it was changed by a program, or after reverting these changes.
 
 
 ## XY.3 Additional usage requirements
