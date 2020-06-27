@@ -2,6 +2,8 @@
 
 (NB: perhaps some terms are unnecessary)
 
+**tuple**: a logical union of several elements that keeps their order; when a tuple is placed into the data stack, the rightmost element is the topmost on the stack, and floating-point numbers are placed into the floating-point stack.
+
 **lexeme**: a syntactic unit of a _program_ (a Forth source code); (unless otherwise noted, it is a sequence of non-blank characters delimited by a blank).
 
 to **recognize** a _lexeme_: to determine the _interpretation semantics_ and the _compilation semantics_ for the _lexeme_ in the current dynamic context.
@@ -14,7 +16,7 @@ to **translate** a _lexeme_: to _interpret_ the _lexeme_ if interpreting, or to 
 
 **dynamic context** of a _lexeme_: information that is available at the time the _lexeme_ is _translated_.
 
-**unqualified token**: a tuple of _data objects_ that determines the _interpretation semantics_ and the _compilation semantics_ for a _lexeme_ in its _dynamic context_.
+**unqualified token**: a tuple of arbitrary _data objects_ that determines the _interpretation semantics_ and the _compilation semantics_ for a _lexeme_ in its _dynamic context_.
 
 **token**: _unqualified token_ (a synonym, when it is clear from context).
 
@@ -26,7 +28,7 @@ to **translate** a _token_: to _interpret_ the _token_ if interpreting, or to _c
 
 **token translator**: a _Forth definition_ that translates a _token_;
 also, depending on context,
-an execution token for this Forth definition.
+an _execution token_ for this Forth definition.
 
 **resolver**: a _Forth definition_ that recognizes a _lexeme_ producing a tuple of a _token_ and its _token translator_.
 
