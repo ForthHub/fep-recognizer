@@ -2,7 +2,7 @@
 
 (NB: perhaps some terms are unnecessary)
 
-**tuple**: a logical union of several elements that keeps their order; when a tuple is placed into the data stack, the rightmost element is the topmost on the stack, and floating-point numbers are placed into the floating-point stack.
+**tuple**: a logical union of several elements that keeps their order; when a tuple is placed into the data stack, the rightmost element in writing is the topmost on the stack, and floating-point numbers are placed into the floating-point stack.
 
 **lexeme**: a syntactic unit of a _program_ (a Forth source code); (unless otherwise noted, it is a sequence of non-blank characters delimited by a blank).
 
