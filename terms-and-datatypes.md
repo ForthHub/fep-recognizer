@@ -1,6 +1,6 @@
 ## XY.2 Additional terms and notations
 
-(NB: perhaps some terms are unnecessary)
+(NB: perhaps some terms are unnecessary, see [#2](../../issues/2)/Rationale)
 
 **tuple**: a logical union of several elements that keeps their order; when a tuple is placed into the data stack, the rightmost element in writing is the topmost on the stack, and floating-point numbers are placed into the floating-point stack.
 
