@@ -58,16 +58,21 @@ or a _token descriptor object_ itself.
 
 ### XY.3.1 Data types
 
-**Token descriptors** are implementation-dependent single-cell values that identify _token descriptor objects_.
-
 Append table XY.1 to table 3.1
 
 #### Table XY.1
 Symbol | Data type | Size on stack
 -- | -- | --
 td | token descriptor | 1 cell
+tt | token translator | 1 cell
+ut | unqualifed token | 0 or more cells on the data stack and floating-point stack
 
-
+#### XY.3.1.1 Data-type relationships
+```
+td => x ;
+tt => xt ;
+ut => i*x j*r; where i >=0, j >= 0 ;
+```
 
 ### XY.3.2 The Forth text interpreter
 
