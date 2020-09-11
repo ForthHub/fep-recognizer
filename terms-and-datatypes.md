@@ -65,14 +65,85 @@ Symbol | Data type | Size on stack
 -- | -- | --
 td | token descriptor | 1 cell
 tt | token translator | 1 cell
-ut | unqualifed token | 0 or more cells on the data stack and floating-point stack
+t  | tuple | 0 or more cells
+ut | unqualifed token | 0 or more cells
+qt | fully qualifed token (qtoken) | 1 or more cells
 
 #### XY.3.1.1 Data-type relationships
 ```
 td => x ;
 tt => xt ;
-ut => i*x j*r; where i >=0, j >= 0 ;
+t => ( i*x j*r k*c ) ; where i >=0, j >= 0, r >= 0 ;
+ut => t ;
+qt => ( ut td ) ;
 ```
+
+#### XY.3.1.x Tuple
+
+A tuple is an ordered union of data objects.
+
+A tuple is charactarized by the number of data objects and the data type for each object.
+The number of its data objects may be uncertain.
+
+A tuple may be empty, that is the number of its data objects is zero.
+
+A tuple notation is a space separated list of data type symbols that is enclosed in parentheses:
+`(  symbol_i ... symbol_2 symbol_1 )`
+The first element is the rightmost one in the notation.
+
+A tuple that contains a nested tuple:
+`(  symbol_k ... ( symbol_j ... symbol_i ) ... symbol_1 )`
+is equal to the tuple with removed nested parentneses:
+`(  symbol_k ... symbol_j ... symbol_i ... symbol_1 )`
+
+When a tuple is placed into the data stack,
+the elements of the tuple (that are particular data objects)
+are placed into the data stack, the floating-point stack, and the control-flow stack,
+in accordance with the corresponding data types and their symbols order.
+The rightmost element in the notation becomes the topmost in a stack.
+
+It's possible that none data object is placed into some stack.
+
+
+#### XY.3.1.x Unqualified token
+
+(todo: maybe replace "token" with "tuple" everywhere)
+
+An unqualified token is a tuple.
+
+
+#### XY.3.1.x Translator
+
+A translator translates a tuple. 
+A translator is specilized to a tuple having some particular notation only.
+An ambiguous condition exists if a translator is applied to tuple having another notation.
+
+The stack effect of performing a translator is:
+`( t_2 t_1 -- t_3 )`. It takes `t_1` from the stack and translates it.
+Other stack effects and side effects are due to particular translator specilizing and translating of this tuple.
+
+
+#### XY.3.1.x Descriptor
+
+A descriptor is specilized to a tuple having some particular notation only.
+
+A descriptor may be the execution token for the corresponding translator.
+
+#### XY.3.1.x Fully qualified token
+
+A fully qualified token is a tuple of an unqualified token and a corresponding descriptor.
+The descriptor can be used to translate the token.
+
+### XY.3.x Recognizer
+
+The stack effect of performing a recognizer is:
+`( c-addr u -- qt | 0 )`
+
+A recognizer tries to recognize the lexeme identified by the string `( c-addr u )` in the current dynamic context.
+It retuns a fully qualified token `qt` if successful, or zero otherwise.
+
+A recognizer shall not have side effects that can be detectable by a standard program.
+
 
 ### XY.3.2 The Forth text interpreter
 
