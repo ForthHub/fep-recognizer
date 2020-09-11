@@ -30,7 +30,7 @@ to **translate** a _token_: to _interpret_ the _token_ if interpreting, or to _c
 also, depending on context,
 an _execution token_ for this Forth definition.
 
-**resolver**: a _Forth definition_ that recognizes a _lexeme_ producing a tuple of a _token_ and its _token translator_.
+**resolver**: a _Forth definition_ that tries to recognize a _lexeme_ producing a tuple of a _token_ and its _token translator_.
 
 **token descriptor object**: an _implementation dependent_ _data object_ (a set of information) that describes how to interpret and how to compile a _token_.
 
@@ -41,7 +41,7 @@ or a _token descriptor object_ itself.
 
 **fully qualified token**: a tuple of a _token_ and its _token descriptor_.
 
-**recognizer**: a _Forth definition_ that recognizes a _lexeme_ producing a _fully qualified token_.
+**recognizer**: a _Forth definition_ that tries to recognize a _lexeme_ producing a _fully qualified token_.
 
 **simple recognizer**: a _recognizer_ that may produce the same _token descriptor_ only.
 
