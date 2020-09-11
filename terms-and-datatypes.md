@@ -116,11 +116,12 @@ An unqualified token is a tuple.
 
 A translator translates a tuple. 
 A translator is specilized to a tuple having some particular notation only.
-An ambiguous condition exists if a translator is applied to tuple having another notation.
+An ambiguous condition exists if a translator is applied to a tuple having another notation.
+An ambiguous condition exists if the tuple cannot be translated in the current state.
 
 The stack effect of performing a translator is:
-`( t_2 t_1 -- t_3 )`. It takes `t_1` from the stack and translates it.
-Other stack effects and side effects are due to particular translator specilizing and translating of this tuple.
+`( t_2 t_1 -- t_3 )`. It takes the tuple `t_1` from the stack and translates it.
+Other stack effects and side effects are due to the particular translator specilizing and translating of this tuple.
 
 
 #### XY.3.1.x Descriptor
