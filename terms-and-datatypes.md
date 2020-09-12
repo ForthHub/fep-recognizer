@@ -117,7 +117,8 @@ An unqualified token is a tuple.
 A translator translates a tuple. 
 A translator is specilized to a tuple having some particular notation only.
 An ambiguous condition exists if a translator is applied to a tuple having another notation.
-An ambiguous condition exists if the tuple cannot be translated in the current state.
+An ambiguous condition exists if a translator cannot translate a tuple in the current state.
+
 
 The stack effect of performing a translator is:
 `( t_2 t_1 -- t_3 )`. It takes the tuple `t_1` from the stack and translates it.
@@ -141,10 +142,10 @@ The stack effect of performing a recognizer is:
 `( c-addr u -- qt | 0 )`
 
 A recognizer tries to recognize the lexeme identified by the string `( c-addr u )` in the current dynamic context.
-It retuns a fully qualified token `qt` if successful, or zero otherwise.
+It retuns a fully qualified token `qt` if successful, or zero otherwise (if unsuccessful).
 
-A recognizer shall not have side effects that can be detectable by a standard program.
-
+A recognizer shall not have side effects that can be detectable by a standard program that is unaware of internal details of this recognizer.
+A recognizer shall return the semantically same results when executed repeatedly with the same arguments.
 
 ### XY.3.2 The Forth text interpreter
 
