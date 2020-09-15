@@ -89,7 +89,6 @@ A tuple may be empty, that is the number of its data objects is zero.
 
 A tuple notation is a space separated list of data type symbols that is enclosed in parentheses:
 `(  symbol_i ... symbol_2 symbol_1 )`
-The first element is the rightmost one in the notation.
 
 A tuple that contains a nested tuple:
 `(  symbol_k ... ( symbol_j ... symbol_i ) ... symbol_1 )`
@@ -145,7 +144,8 @@ A recognizer tries to recognize the lexeme identified by the string `( c-addr u 
 It retuns a fully qualified token `qt` if successful, or zero otherwise (if unsuccessful).
 
 A recognizer shall not have side effects that can be detectable by a standard program that is unaware of internal details of this recognizer.
-A recognizer shall return the semantically same results when executed repeatedly with the same arguments.
+A recognizer shall return the semantically same results when it is performed consecutively with the same arguments.
+
 
 ### XY.3.2 The Forth text interpreter
 
