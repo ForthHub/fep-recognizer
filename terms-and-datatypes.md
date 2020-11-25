@@ -1,5 +1,7 @@
 ## XY.2 Additional terms and notations
 
+### XY.2.1 Definitions of terms
+
 (NB: perhaps some terms are unnecessary, see [#2](../../issues/2)/Rationale)
 
 **tuple**: a logical union of several elements that keeps their order; when a tuple is placed into the data stack, the rightmost element in writing is the topmost on the stack, and floating-point numbers are placed into the floating-point stack.
@@ -54,6 +56,25 @@ or a _token descriptor object_ itself.
 **default perceptor**: the _perceptor_ before it was changed by a program, or after reverting these changes.
 
 
+### XY.2.2 Notation
+
+#### XY.2.2.1 Tuple notation
+
+A tuple is described by a space separated list of data type symbols that is enclosed in parentheses:
+`(  symbol_i ... symbol_2 symbol_1 )`
+
+A tuple that contains a nested tuple:
+`(  symbol_k ... ( symbol_j ... symbol_i ) ... symbol_1 )`
+is equal to the tuple with removed nested parentneses:
+`(  symbol_k ... symbol_j ... symbol_i ... symbol_1 )`
+
+In a stack notation a tuple can be shown in an abbreviation form as `i*x`,
+or  surrounded by curved brackets as
+`( stack-id: symbol_k ... { symbol_j ... symbol_i } ... symbol_1 -- ... )`
+
+(the latter option is a subject for a discussion)
+
+
 ## XY.3 Additional usage requirements
 
 ### XY.3.1 Data types
@@ -80,20 +101,12 @@ qt => ( ut td ) ;
 
 #### XY.3.1.x Tuple
 
-A tuple is an ordered union of data objects.
+A tuple is an ordered union of data objects, with possible duplicates.
 
 A tuple is charactarized by the number of data objects and the data type for each object.
 The number of its data objects may be uncertain.
 
 A tuple may be empty, that is the number of its data objects is zero.
-
-A tuple notation is a space separated list of data type symbols that is enclosed in parentheses:
-`(  symbol_i ... symbol_2 symbol_1 )`
-
-A tuple that contains a nested tuple:
-`(  symbol_k ... ( symbol_j ... symbol_i ) ... symbol_1 )`
-is equal to the tuple with removed nested parentneses:
-`(  symbol_k ... symbol_j ... symbol_i ... symbol_1 )`
 
 When a tuple is placed into the data stack,
 the elements of the tuple (that are particular data objects)
