@@ -4,7 +4,8 @@
 
 (NB: perhaps some terms are unnecessary, see [#2](../../issues/2)/Rationale)
 
-**tuple**: a logical union of several elements that keeps their order; when a tuple is placed into the data stack, the rightmost element in writing is the topmost on the stack, and floating-point numbers are placed into the floating-point stack.
+**tuple**: a logical ordered union of several elements with possible duplicates.
+(#todo #maybe harmonize with XY.3.1.x Tuple)
 
 **lexeme**: a syntactic unit of a _program_ (a Forth source code); (unless otherwise noted, it is a sequence of non-blank characters delimited by a blank).
 
@@ -96,7 +97,7 @@ qt | fully qualifed token (qtoken) | 1 or more cells
 ```
 td => x ;
 tt => xt ;
-t => ( i*x j*r k*c ) ; where i >=0, j >= 0, r >= 0 ;
+t => ( S: i*x F: j*r C: k*c ) ; where i >=0, j >= 0, r >= 0 ;
 ut => t ;
 qt => ( ut td ) ;
 ```
@@ -106,24 +107,27 @@ qt => ( ut td ) ;
 A tuple is an ordered union of data objects, with possible duplicates.
 
 A tuple is charactarized by the number of data objects and the data type for each object.
-The number of its data objects may be uncertain.
+The number of data objects in a tuple may be uncertain.
 
-A tuple may be empty, that is the number of its data objects is zero.
+A tuple may be empty, that means the number of its data objects is zero.
 
-When a tuple is placed into the data stack,
+When a tuple is placed on the stacks,
 the elements of the tuple (that are particular data objects)
-are placed into the data stack, the floating-point stack, and the control-flow stack,
+are placed on the data stack, the floating-point stack, and the control-flow stack,
 in accordance with the corresponding data types and their symbols order.
 The rightmost element in the notation becomes the topmost in a stack.
 
-It's possible that none data object is placed into some stack.
+It's possible that none data object is placed on some stack.
 
+(Rationale: the control flow stack is mentioned to allow to use the tuple notation for control flow operations too, if any)
 
 #### XY.3.1.x Unqualified token
 
 (todo: maybe replace "token" with "tuple" everywhere)
 
 An unqualified token is a tuple.
+
+An unqualified token shall be placable on the data and floating point stacks only.
 
 
 #### XY.3.1.x Translator
