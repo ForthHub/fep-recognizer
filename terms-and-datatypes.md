@@ -130,7 +130,9 @@ An unqualified token is a tuple.
 An unqualified token shall be placable on the data and floating point stacks only.
 
 
-#### XY.3.1.x Translator
+#### XY.3.1.x Token translator
+
+(In this section, "translator" means "token translator")
 
 A translator translates a tuple. 
 A translator is specilized to a tuple having some particular notation only.
@@ -143,7 +145,9 @@ The stack effect of performing a translator is:
 Other stack effects and side effects are due to the particular translator specilizing and translating of this tuple.
 
 
-#### XY.3.1.x Descriptor
+#### XY.3.1.x Token descriptor
+
+(In this section, "descriptor" means "token descriptor")
 
 A descriptor is specilized to a tuple having some particular notation only.
 
@@ -162,7 +166,7 @@ The stack effect of performing a recognizer is:
 A recognizer tries to recognize the lexeme identified by the string `( c-addr u )` in the current lexical context.
 It retuns a fully qualified token `qt` if successful, or zero otherwise (if unsuccessful).
 
-Neither interpretation nor compilation state are the part of the lexical context.
+Neither interpretation state nor compilation state are the part of the lexical context.
 
 A recognizer shall not have side effects that can be detectable by a standard program that is unaware of internal details of this recognizer.
 A recognizer shall return the semantically same results when it is performed consecutively with the same arguments.
