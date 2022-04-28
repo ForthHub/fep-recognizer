@@ -71,7 +71,7 @@ A tuple that contains a nested tuple:
 is equal to the tuple with removed nested parentneses:
 `(  symbol_k ... symbol_j ... symbol_i ... symbol_1 )`
 
-In a stack notation a tuple can be shown in an abbreviation form as `i*x`,
+In a stack diagram a tuple can be shown in an abbreviation form as `i*x`,
 or  surrounded by curved brackets as
 `( stack-id: symbol_k ... { symbol_j ... symbol_i } ... symbol_1 -- ... )`
 
@@ -106,7 +106,8 @@ qt => ( ut td ) ;
 
 A tuple is an ordered union of data objects, with possible duplicates.
 
-A tuple is charactarized by the number of data objects and the data type for each object.
+A tuple is charactarized by the number of data objects and the data type for each object,
+that are constitute the **tuple signature**.
 The number of data objects in a tuple may be uncertain.
 
 A tuple may be empty, that means the number of its data objects is zero.
@@ -115,8 +116,7 @@ When a tuple is placed on the stacks,
 the elements of the tuple (that are particular data objects)
 are placed on the data stack, the floating-point stack, and the control-flow stack,
 in accordance with the corresponding data types and their symbols order.
-The rightmost element in the notation becomes the topmost in a stack.
-
+The rightmost element in the tuple becomes the topmost in a stack.
 It's possible that none data object is placed on some stack.
 
 (Rationale: the control flow stack is mentioned to allow to use the tuple notation for control flow operations too, if any)
@@ -135,8 +135,8 @@ An unqualified token shall be placable on the data and floating point stacks onl
 (In this section, "translator" means "token translator")
 
 A translator translates a tuple. 
-A translator is specilized to a tuple having some particular notation only.
-An ambiguous condition exists if a translator is applied to a tuple having another notation.
+A translator is specilized to a tuple having some particular signature only.
+An ambiguous condition exists if a translator is applied to a tuple having another signature.
 An ambiguous condition exists if a translator cannot translate a tuple in the current state.
 
 
@@ -149,9 +149,9 @@ Other stack effects and side effects are due to the particular translator specil
 
 (In this section, "descriptor" means "token descriptor")
 
-A descriptor is specilized to a tuple having some particular notation only.
+A descriptor is specilized to a tuple having some particular signature only.
 
-A descriptor may be the execution token for the corresponding translator.
+NB: A token translator can play role of the descriptor.
 
 #### XY.3.1.x Fully qualified token
 
