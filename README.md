@@ -20,13 +20,13 @@ A partial list (please add other links).
  - [Recognizer RfD version 1 rephrase 2020](https://forth-standard.org/standard/intro#contribution-131)
  - [Resolver API](https://github.com/ruv/forth-design-exp/blob/master/docs/resolver-api.md)
 
-#### New works
+#### Newer works
+ - [Nestable Recognizer Sequences](https://forth-standard.org/proposals/nestable-recognizer-sequences#contribution-149)
  - [Minimalistic core API for recognizers](https://forth-standard.org/proposals/minimalistic-core-api-for-recognizers#reply-515)
 
 #### See also
-
  - [Comparison of the terminology to some past proposals](https://gist.github.com/ruv/af796cece2ecd2ee541d883a04483dcc#file-11-comparision-to-some-past-versions-md)
-
+ - The proposal of this work terminology [on forth-standard.org](https://forth-standard.org/proposals/common-terminology-for-recognizers-discurse-and-specifications#contribution-161)
 
 ## Table of contents
 
