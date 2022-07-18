@@ -68,7 +68,7 @@ A tuple is described by a space separated list of data type symbols that is encl
 
 A tuple that contains a nested tuple:
 `(  symbol_k ... ( symbol_j ... symbol_i ) ... symbol_1 )`
-is equal to the tuple with removed nested parentneses:
+is equal to the tuple with removed nested parentheses:
 `(  symbol_k ... symbol_j ... symbol_i ... symbol_1 )`
 
 In a stack diagram a tuple can be shown in an abbreviation form as `i*x`,
@@ -90,14 +90,14 @@ Symbol | Data type | Size on stack
 td | token descriptor | 1 cell
 tt | token translator | 1 cell
 t  | tuple | 0 or more cells
-ut | unqualifed token | 0 or more cells
-qt | fully qualifed token (qtoken) | 1 or more cells
+ut | unqualified token | 0 or more cells
+qt | fully qualified token (qtoken) | 1 or more cells
 
 #### XY.3.1.1 Data-type relationships
 ```
 td => x ;
 tt => xt ;
-t => ( S: i*x F: j*r C: k*c ) ; where i >=0, j >= 0, r >= 0 ;
+t => ( S: i*x F: j*r C: k*x ) ; where i >=0, j >= 0, k >= 0 ;
 ut => t ;
 qt => ( ut td ) ;
 ```
@@ -106,7 +106,7 @@ qt => ( ut td ) ;
 
 A tuple is an ordered union of data objects, with possible duplicates.
 
-A tuple is charactarized by the number of data objects and the data type for each object,
+A tuple is characterized by the number of data objects and the data type for each object,
 that are constitute the **tuple signature**.
 The number of data objects in a tuple may be uncertain.
 
@@ -134,22 +134,22 @@ An unqualified token shall be placable on the data and floating point stacks onl
 
 (In this section, "translator" means "token translator")
 
-A translator translates a tuple. 
-A translator is specilized to a tuple having some particular signature only.
+A translator translates a tuple.
+A translator is specialized to a tuple having some particular signature only.
 An ambiguous condition exists if a translator is applied to a tuple having another signature.
 An ambiguous condition exists if a translator cannot translate a tuple in the current state.
 
 
 The stack effect of performing a translator is:
 `( t_2 t_1 -- t_3 )`. It takes the tuple `t_1` from the stack and translates it.
-Other stack effects and side effects are due to the particular translator specilizing and translating of this tuple.
+Other stack effects and side effects are due to the particular translator specializing and translating of this tuple.
 
 
 #### XY.3.1.x Token descriptor
 
 (In this section, "descriptor" means "token descriptor")
 
-A descriptor is specilized to a tuple having some particular signature only.
+A descriptor is specialized to a tuple having some particular signature only.
 
 NB: A token translator can play role of the descriptor.
 
@@ -164,7 +164,7 @@ The stack effect of performing a recognizer is:
 `( c-addr u -- qt | 0 )`
 
 A recognizer tries to recognize the lexeme identified by the string `( c-addr u )` in the current lexical context.
-It retuns a fully qualified token `qt` if successful, or zero otherwise (if unsuccessful).
+It returns a fully qualified token `qt` if successful, or zero otherwise (if unsuccessful).
 
 Neither interpretation state nor compilation state are the part of the lexical context.
 
@@ -174,7 +174,7 @@ A recognizer shall return the semantically same results when it is performed con
 
 ### XY.3.2 The Forth text interpreter
 
-If the Recognizer word set is present, the following specification should be used instead the specification in the section 3.4 begining with "a. Skip leading spaces" and up to the sub-section "3.4.1".
+If the Recognizer word set is present, the following specification should be used instead the specification in the section 3.4 beginning with "a. Skip leading spaces" and up to the sub-section "3.4.1".
 
 - a. Skip leading spaces and parse a _lexeme_ (see 3.4.1);
 - b. Recognize the _lexeme_ using the perceptor and producing a _fully qualified token_;
@@ -189,12 +189,12 @@ Initially the perceptor should recognize a lexeme in the following order
 - 1\. As the name of a local variable if the Locals word set is provided.
 - 2\. As the name of a Forth word according to the search order if the Search-Order word set is provided, or in the dictionary header space otherwise.
 - 3\. As a number according to [3.4.1.3](https://forth-standard.org/standard/usage#usage:numbers).
-- 4\. As other implementaton defined forms, if any.
+- 4\. As other implementation defined forms, if any.
 
 
 ### XY.3.3 Contiguous regions
 
-The regions of data space produced by the operations described in 3.3.3.2 Contiguous regions may be non-contiguous if the following words are executed between allocations. 
+The regions of data space produced by the operations described in 3.3.3.2 Contiguous regions may be non-contiguous if the following words are executed between allocations.
 
  - `PERCEPTOR`
  - `SET-PERCEPTOR`
@@ -202,4 +202,4 @@ The regions of data space produced by the operations described in 3.3.3.2 Contig
  - `SET-PERCEPTOR-AFTER`
  - `REVERT-PERCEPTOR`
 
-(the words are *under constraction*, see also [Issue #3](https://github.com/ForthHub/fep-recognizer/issues/3))
+(the words are *under construction*, see also [Issue #3](https://github.com/ForthHub/fep-recognizer/issues/3))
