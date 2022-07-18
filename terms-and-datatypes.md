@@ -11,13 +11,13 @@
 
 to **recognize** a _lexeme_: to determine the _interpretation semantics_ and the _compilation semantics_ for the _lexeme_.
 
-**lexical context**: the part of the system's state, on which recognizing of lexemes depends on.
+**lexical context**: the set of all possible system's states on which recognizing of lexemes depends on.
 
-**lexical context** of a _lexeme_: the _lexical context_ in which this _lexeme_ is recognized.
+**lexical context** of a _lexeme_: the element of _lexical context_ in which this _lexeme_ is recognized.
 
-to **interpret** a _lexeme_: to perform the _interpretation semantics_ for the _lexeme_ (in the current lexical context).
+to **interpret** a _lexeme_: to perform the _interpretation semantics_ for the _lexeme_ in its lexical context.
 
-to **compile** a _lexeme_: to perform the _compilation semantics_ for the _lexeme_ (in the current lexical context).
+to **compile** a _lexeme_: to perform the _compilation semantics_ for the _lexeme_ in its lexical context.
 
 to **translate** a _lexeme_: to _interpret_ the _lexeme_ if interpreting, or to _compile_ the _lexeme_ if compiling.
 
@@ -50,7 +50,7 @@ or a _token descriptor object_ itself.
 
 **simple recognizer**: a _recognizer_ that may produce the same _token descriptor_ only.
 
-**compound recognizer**: a _recognizer_ that can produce the different _token descriptors_.
+**compound recognizer**: a _recognizer_ that may produce the different _token descriptors_.
 
 **perceptor**: a _recognizer_ that is currently used by the Forth text interpreter to translate a _lexeme_.
 
@@ -163,7 +163,7 @@ The descriptor can be used to translate the token.
 The stack effect of performing a recognizer is:
 `( c-addr u -- qt | 0 )`
 
-A recognizer tries to recognize the lexeme identified by the string `( c-addr u )` in the current lexical context.
+A recognizer tries to recognize the lexeme identified by the string `( c-addr u )` in its lexical context.
 It returns a fully qualified token `qt` if successful, or zero otherwise (if unsuccessful).
 
 Neither interpretation state nor compilation state are the part of the lexical context.
