@@ -56,7 +56,7 @@ or a _token descriptor object_ itself.
 
 **current recognizer**: the _perceptor_ (an unformal synonym).
 
-**default perceptor**: the _perceptor_ before it was changed by a program, or after reverting these changes.
+**initial perceptor**: the _perceptor_ before it was changed by a program, or after reverting these changes.
 
 
 ### XY.2.2 Notation
@@ -182,7 +182,7 @@ If the Recognizer word set is present, the following specification should be use
   -  2\. if compiling, according to the _token descriptor_, perform the _complication semantics_ that are determined by the _token_ and continue at a).
 - c. If unsuccessful, an ambiguous condition exists (see 3.4.4).
 
-#### XY.3.2.1 The default perceptor
+#### XY.3.2.1 The initial perceptor
 
 Initially the perceptor should recognize a lexeme in the following order
 
