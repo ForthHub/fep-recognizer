@@ -49,13 +49,6 @@
 \ If all these words are single-xt, we assume the system is single-xt,
 \ otherwise we are confident the system is dual-xt.
 
-[undefined] d= [if]
-: d= ( xd xd -- flag.equal ) rot = rot rot = and ;
-[then]
-[undefined] d<> [if]
-: d<> ( xd xd -- flag.not-equal ) d= 0= ;
-[then]
-
 : (test-find-dual) ( c-addr -- flag.dual true | false false )
   dup >r ['] find execute-compiling ( xd1 )
   r> over >r ['] find execute-interpreting ( xd1 xd2 )

@@ -12,6 +12,13 @@
 [undefined] 1-! [if]  : 1-! ( a-addr -- ) -1 swap +! ;  [then]
 
 
+[undefined] d= [if]
+  : d= ( xd xd -- flag.equal ) rot = rot rot = and ;
+[then]
+[undefined] d<> [if]
+  : d<> ( xd xd -- flag.not-equal ) d= 0= ;
+[then]
+
 [undefined] rdrop [if]
   : rdrop ( R.runtime: x -- ) postpone r> postpone drop ; immediate
 [then]
