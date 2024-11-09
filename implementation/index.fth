@@ -14,6 +14,9 @@ include ./lib/string-match.fth
 include ./lib/compat/compiler.fth
 include ./lib/compat/translator.fth
 
+\ The word `find-word` and a test whether the system is dual-xt
+include ./lib/find-word.fth
+
 
 \ Include Recognizer API and examples
 wordlist dup constant variant.gamma  also-wordlist definitions

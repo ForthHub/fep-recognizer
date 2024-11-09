@@ -1,7 +1,4 @@
 
-\ The word `find-word` and a test whether the system is dual-xt
-include ./variant.gamma/find-word.fth
-
 \ Token translators
 include ./variant.gamma/translator.fth
 
