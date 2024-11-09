@@ -5,10 +5,6 @@
 : ?stack ( -- ) depth 0 <   -4 and throw ; \ "stack underflow"
 [then]
 
-[undefined] parse-lexeme [if]
-: parse-lexeme ( -- sd.lexeme ) parse-name ;
-[then]
-
 
 
 \ Default recognizer for the Forth text interpreter
