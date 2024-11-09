@@ -1,5 +1,5 @@
 
-require ./lib/search-order.fth \ the word "also-wordlist"
+include ./lib/search-order.fth \ the word "also-wordlist"
 
 wordlist dup constant scratchpad also-wordlist definitions
 \ in "scatchpad"
