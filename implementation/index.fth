@@ -6,7 +6,7 @@ wordlist dup constant scratchpad also-wordlist definitions
 
 \ Include libraries
 
-\ load bracket-if.fth  if `[if]` is absent or does not work in lower case
+\ load "bracket-if.fth"  if `[if]` is absent or does not work in lower case
 s" 0 0 [if] [else] drop -1 [then]" :noname ['] evaluate catch if 2drop 0 then if exit then s" ./lib/bracket-if.fth" included ; execute
 
 include ./lib/compat/well-known-words.fth

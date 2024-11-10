@@ -4,7 +4,7 @@
 
 [undefined] 2lit,   [if]
   [defined] 2literal [if]
-    : 2lit,  postpone 2literal ; [then]
+    : 2lit,  postpone 2literal ;
   [else]
     : 2lit,  swap lit, lit, ;
   [then]
