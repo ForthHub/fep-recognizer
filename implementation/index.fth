@@ -32,6 +32,6 @@ s" ./lib/compat/relative-include-test.fth" included 0= [if]
 wordlist dup constant variant.gamma  also-wordlist definitions
 \ in "variant.gamma"
 
-include ./variant.gamma.index.fth
+include ./variant.gamma/index.fth
 
 \ The search order at this point:  forth scratchpad variant.gamma  \ <-- top
