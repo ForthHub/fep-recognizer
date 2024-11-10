@@ -10,13 +10,21 @@
 [undefined] 0!  [if]  : 0!  ( a-addr -- )  0 swap  ! ; [then]
 [undefined] 1+! [if]  : 1+! ( a-addr -- )  1 swap +! ;  [then]
 [undefined] 1-! [if]  : 1-! ( a-addr -- ) -1 swap +! ;  [then]
+[undefined] char+ [if]  : char+ ( c-addr -- c-addr ) 1 chars + ;  [then]
+[undefined] char- [if]  : char- ( c-addr -- c-addr ) 1 chars - ;  [then]
 
 
-[undefined] d= [if]
+
+[undefined] d= [if]  [defined] d- [if]
+  : d= ( xd xd -- flag.equal ) d- 0= ;
+[else]
   : d= ( xd xd -- flag.equal ) rot = rot rot = and ;
-[then]
+[then] [then]
 [undefined] d<> [if]
   : d<> ( xd xd -- flag.not-equal ) d= 0= ;
+[then]
+[undefined] 2, [if]
+  : 2, ( x x -- ) , , ;
 [then]
 
 [undefined] rdrop [if]

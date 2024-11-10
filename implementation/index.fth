@@ -20,6 +20,12 @@ include ./lib/find-word.fth
 \ Define a simple version of `synonym` if it is not provided by the system
 include ./lib/compat/synonym.fth
 
+\ Load an implementation for relative `included`, if it is not supported by the system
+s" ./lib/compat/relative-include-test.fth" included 0= [if]
+  .( [info loading support for paths relative to the parent file in `included`] ) cr
+  include ./lib/relative-include.fth
+[then]
+
 
 \ Include Recognizer API and examples
 wordlist dup constant variant.gamma  also-wordlist definitions
