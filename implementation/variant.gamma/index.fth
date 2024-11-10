@@ -31,6 +31,6 @@ include ./example.interpret.fth
 
 0 [if] \ example
 
-example.interpret 2 3 + . cr
+translate-source-following  2 3 + . cr
 
 [then]

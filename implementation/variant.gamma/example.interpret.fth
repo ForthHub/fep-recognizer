@@ -38,17 +38,18 @@
 ' recognize-forth-default set-perceptor
 
 
-: example.interpret ( i*x -- j*x )
+: translate-source-following ( i*x -- j*x )
+  \ Also known as `interpret`
   begin ?stack
     parse-lexeme  dup while translate-lexeme
   repeat 2drop
 ;
 
 [defined] execute-parsing [if]
-: example.evaluate ( i*x sd -- j*x ) ['] example.interpret execute-parsing ;
+: example.evaluate ( i*x sd -- j*x ) ['] translate-source-following execute-parsing ;
 [then]
 
 0 [if] \ example
-example.interpret 2 3 + . cr
+translate-source-following  2 3 + . cr
 s" 2 3 + . cr" example.evaluate
 [then]
