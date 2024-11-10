@@ -17,6 +17,9 @@ include ./lib/compat/translator.fth
 \ The word `find-word` and a test whether the system is dual-xt
 include ./lib/find-word.fth
 
+\ Define a simple version of `synonym` if it is not provided by the system
+include ./lib/compat/synonym.fth
+
 
 \ Include Recognizer API and examples
 wordlist dup constant variant.gamma  also-wordlist definitions
