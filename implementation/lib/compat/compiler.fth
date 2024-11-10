@@ -11,3 +11,8 @@
 [then]
 
 [undefined] flit, [defined] flitetral   and [if] : flit, postpone fliteral ; [then]
+
+:noname [ s" ' false compile," ' evaluate catch dup [if] lit, drop [then] drop ] ; execute [if]
+  \ define interpretation semantics for `compile,`
+  : compile, compile, ;
+[then]
