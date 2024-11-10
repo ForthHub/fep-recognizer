@@ -4,7 +4,7 @@
 [then] [then]
 
 
-[undefined] enter-compilation  [undefined] leave-compilation  or [if]
+[undefined] enter-compilation  [undefined] leave-compilation  [undefined] compilation  or or  [if]
 
 : compilation ( comp: true ; S: -- true ; | comp: false ; S: -- false ; )  state @ 0<> ;
 : enter-compilation ( comp: false -- true ; -- ; | comp: true  ; -- ; )  ] ;

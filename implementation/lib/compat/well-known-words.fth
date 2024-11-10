@@ -4,9 +4,6 @@
 [undefined] 1+  [if]  : 1+  1 + ; [then]
 [undefined] 1-  [if]  : 1-  1 - ; [then]
 
-[undefined] char+ [if]  : char+ 1 chars + ; [then]
-[undefined] char- [if]  : char- 1 chars - ; [then]
-
 [undefined] 0!  [if]  : 0!  ( a-addr -- )  0 swap  ! ; [then]
 [undefined] 1+! [if]  : 1+! ( a-addr -- )  1 swap +! ;  [then]
 [undefined] 1-! [if]  : 1-! ( a-addr -- ) -1 swap +! ;  [then]
@@ -38,11 +35,3 @@
   : ndrop ( i*x u.i -- ) 0 ?do drop loop ;
 [then]
 
-
-[undefined] parse-lexeme [if]
-[defined] synonym [if]
-  synonym parse-lexeme parse-name
-[else]
-  : parse-lexeme parse-name ;
-[then]
-[then]

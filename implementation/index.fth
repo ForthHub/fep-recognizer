@@ -10,15 +10,14 @@ wordlist dup constant scratchpad also-wordlist definitions
 :noname ( sd.fn sd.test -- ) ['] evaluate catch if 2drop 0 then if 2drop else included then ;
 s" ./lib/bracket-if.fth" s" 0 0 [if] [else] drop -1 [then]" 4 pick execute drop
 
-include ./lib/compat/well-known-words.fth
+include ./index.lib-compat.fth
 include ./lib/string-match.fth
-include ./lib/compat/compiler.fth
-include ./lib/compat/translator.fth
 
 \ The word `find-word` and a test whether the system is dual-xt
 include ./lib/find-word.fth
 
 \ Define a simple version of `synonym` if it is not provided by the system
+\ (NB: after "./lib/find-word.fth")
 include ./lib/compat/synonym.fth
 
 \ Load an implementation for relative `included`, if it is not supported by the system
