@@ -23,21 +23,32 @@ variable _list-of-synonyms 0 _list-of-synonyms !
   >in @ >r  '  r> >in ! ( xt )
   of-synonym abort" cannot be applied to a synonym"
 ;
+: [compile-immed] ( "<name>" -- xt )
+  \ NB: this word is intended for single-xt systems only.
+  parse-name find-word dup 0= if -13 throw then
+  -1 = abort" The word must be immediate"
+  compile,
+; immediate
+
 [defined] to [if]
 : to ( any "<name>" -- any )
-  (?notsynonym) [ ' to compile, ]
+  (?notsynonym) [compile-immed] to
 ; immediate
 [then]
 [defined] is [if]
 : is ( any "<name>" -- any )
-  (?notsynonym) [ ' is compile, ]
+  (?notsynonym) [compile-immed] is
 ; immediate
 [then]
 [defined] action-of [if]
 : action-of ( any "<name>" -- any )
-  (?notsynonym) [ ' action-of compile, ]
+  (?notsynonym) [compile-immed] action-of
 ; immediate
 [then]
+
+\ NB: the words `to`, `is`, `action-of` cannot be ordinary words in a single-xt system.
+\ They shall be immediate words. Otherwise they incorrectly apply to a word that is immediate.
+
 
 : ?notsynonym ( xt -- xt ) dup of-synonym abort" cannot be used for a synonym xt" ;
 : >body ( xt -- a-addr.body ) ?notsynonym >body ;

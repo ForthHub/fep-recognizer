@@ -68,3 +68,11 @@
 
 dup [if] true constant true.system.dual-xt [then]
 0= constant flag.system.seems-single-xt
+
+flag.system.seems-single-xt [if]
+  s" TO" find-word dup [if]
+    nip 1 <> [if]
+      cr .( [warning `to` or `find` in the Forth system is implemented incorrectly] ) cr
+    [then]
+  [else] drop [then]
+[then]
