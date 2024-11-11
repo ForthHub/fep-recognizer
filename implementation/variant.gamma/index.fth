@@ -1,9 +1,16 @@
 
+\ Recognizer API
+include ./recognizer-api.fth
+
+
 \ Token translators
 include ./translator.fth
 
 
 \ Recognizers
+
+\ Recognize numbers in different formats
+include ./recognizer/number.fth
 
 \ Recognize a word name using `find`
 [defined] true.system.dual-xt [if]
@@ -18,12 +25,6 @@ include ./translator.fth
 [defined] find-name [if]
   include ./recognizer/name.fth
 [then]
-
-\ Recognize numbers in different formats
-include ./recognizer/number.fth
-
-\ Recognizer API
-include ./recognizer-api.fth
 
 
 \ An example of the Forth text interpreter
