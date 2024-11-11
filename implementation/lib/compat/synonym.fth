@@ -1,7 +1,8 @@
 [undefined] synonym [if]
 \ Define a simple version of `synonym` (on a single-xt system only).
-\ The words `to`, `is`, `action-of` cannot be applied to a word created with this `synonym`
-\ and `>body` cannot be applied to the xt of the word created with this `synonym`  (this is checked).
+\ The words `to`, `is`, `action-of` cannot be applied to a word created with this `synonym`,
+\ and `>body`, `defer@`, `defer!` cannot be applied to the xt of the word created with this `synonym`
+\ (all that is checked).
 
 [undefined] find-word  [undefined] flag.system.seems-single-xt  or [if]
   .( [error "find-word.fth" shall be included earlier. Abort.] ) cr abort
@@ -10,7 +11,7 @@
   .( [error `synonym` is missed and won't be defined on a dual-xt system. Abort.] ) cr abort
 [then]
 
-.( [warning `synonym` is missed, a simplified version is defined] ) cr
+.( [warning `synonym` is missed, a simplified version is loaded] ) cr
 
 \ An additional boolean attribute to an xt - whether it's for a synonym
 variable _list-of-synonyms 0 _list-of-synonyms !
@@ -38,7 +39,10 @@ variable _list-of-synonyms 0 _list-of-synonyms !
 ; immediate
 [then]
 
-: >body ( xt -- a-addr.body ) dup of-synonym abort" `>body` cannot be used for a synonym" >body ;
+: ?notsynonym ( xt -- xt ) dup of-synonym abort" cannot be used for a synonym xt" ;
+: >body ( xt -- a-addr.body ) ?notsynonym >body ;
+: defer@ ( xt1 -- xt2 ) ?notsynonym defer@ ;
+: defer! ( x2 xt1 -- ) ?notsynonym defer! ;
 
 : synonym ( "<name.new>" "<name.old>" -- )
   >in @ parse-lexeme 2>r >in !
