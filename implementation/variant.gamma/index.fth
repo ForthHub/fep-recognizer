@@ -4,7 +4,7 @@ include ./recognizer-api.fth
 
 
 \ Token translators
-include ./translator.fth
+include ./token-translator.fth
 
 
 \ Recognizers
@@ -28,7 +28,7 @@ include ./recognizer/number.fth
 
 
 \ An example of the Forth text interpreter
-include ./example.interpret.fth
+include ./example.text-translator.fth
 
 0 [if] \ example
 
