@@ -7,3 +7,9 @@
 [then]
 [then]
 
+[undefined] parse-lexeme-sure [if]
+: parse-lexeme-sure ( "<name>" -- sd.lexeme )
+  parse-lexeme dup if exit then  -16 throw \ "attempt to use zero-length string as a name"
+;
+[then]
+

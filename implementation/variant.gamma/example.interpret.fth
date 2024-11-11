@@ -53,3 +53,15 @@
 translate-source-following  2 3 + . cr
 s" 2 3 + . cr" example.evaluate
 [then]
+
+
+
+\ Implement the words `'` and `[']` using Recognizer API
+\ These words shall perceive the lexeme instead of simply trying to find it in the search order.
+
+: ' ( "<name>"-- xt )
+  parse-lexeme-sure perceive qtoken>xt
+;
+: ['] ( "<name>"-- xt | )
+  parse-lexeme-sure perceive qtoken>xt tt-x
+; immediate

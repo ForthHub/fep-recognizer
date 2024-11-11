@@ -24,3 +24,21 @@
 : tt-word-dual-odd ( any xt.run-time xt.interp -- any )
   compilation if drop compile, else nip execute then
 ;
+
+
+: qtoken>xt? ( 0 -- 0  |  qt -- xt true  |  qt -- qt false )
+  \ Obtain the execution token of the definition from a qualified token if possible.
+  case
+    ['] tt-nt             of  name> endof
+    ['] tt-xt             of  endof
+    ['] tt-word-imm       of  endof
+    ['] tt-word-dual      of  nip endof
+    ['] tt-word-dual-odd  of  nip endof
+    false exit
+  endcase true
+;
+: qtoken>xt ( 0|qt -- xt )
+  \ Try to obtain the execution token of the definition from a qualified token,
+  \ throw an exception if an execution token cannot be obtained.
+  ?found qtoken>xt? if exit then  -32 throw \ "invalid name argument"
+;
