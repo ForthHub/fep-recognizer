@@ -1,8 +1,5 @@
-
-[undefined] name> [if]  [defined] name>interpret [if]
-: name> ( nt -- xt ) name>interpret ?dup if exit then [: -14 throw ;] ;
-[then] [then]
-
+\ Translation in specific state,
+\ or compilation and interpretation regardless of the initial state.
 
 [undefined] enter-compilation  [undefined] leave-compilation  [undefined] compilation  or or  [if]
 

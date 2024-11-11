@@ -1,3 +1,9 @@
+\ Little-known words
+
+[undefined] name> [if]  [defined] name>interpret [if]
+: name> ( nt -- xt ) name>interpret ?dup if exit then [: -14 throw ;] ;
+[then] [then]
+
 
 [undefined] parse-lexeme [if]
 [defined] synonym [if]
