@@ -5,5 +5,5 @@
 
 include ./lib/compat/well-known-words.fth
 include ./lib/compat/little-known-words.fth
-include ./lib/compat/compiler.fth
-include ./lib/compat/translator.fth
+include ./lib/compat/core.compiler.fth
+include ./lib/compat/core.translator.fth
