@@ -1,7 +1,7 @@
 
 : (?string-copy) ( sd1 -- sd1 | sd2 )
   over source over + within 0= if exit then
-  dup allocate throw over 2swap 3 pick move
+  dup allocate throw over 2swap 3 pick swap move
 ;
 
 : tt-x    ( comp: true ; x1 --  ; | comp: false ;  x1 -- x1   )   compilation if lit,     then ;
@@ -26,7 +26,7 @@
 ;
 
 
-: qtoken>xt? ( 0 -- 0  |  qt -- xt true  |  qt -- qt false )
+: qtoken>xt? ( qt -- xt true  |  qt -- qt false  |  0 -- 0 false )
   \ Obtain the execution token of the definition from a qualified token if possible.
   case
     ['] tt-nt             of  name> endof
