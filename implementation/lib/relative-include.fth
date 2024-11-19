@@ -1,6 +1,12 @@
+\ Loading a file with its path relative to the file being loaded
 
-\ If the argument of `included` (or `required`) starts with "./", it is relative to the current base URI.
-\ TODO: handle multiple "../"
+\ The path "./" references the directory of the file being loaded.
+\ The path "./../" references the parent directory of the directory of the file being loaded.
+\ This is handled in `included` (as well as `include`, `required`, `require`)
+\ NB: the path "../" is not treated specially; it normally refers to the parent directory
+\ of the working directory of the process.
+
+\ TODO: make path normalization by eliminating multiple "../" #maybe
 
 wordlist dup constant module-base-uri
 dup also-wordlist exch-current ( wid.compilation.previous )
@@ -25,11 +31,7 @@ dup also-wordlist exch-current ( wid.compilation.previous )
   v_base dup if cell+ cell+ 2@ exit then 0
 ;
 : push-base-uri ( sd.uri -- )
-  s" ./" match-head drop \ the base uri cannot be explicitly relative
-  s" ../" match-head if
-    -3 /string cr ." (filename " type ." )" cr
-    true abort" push-base-uri: '../' is not supported"
-  then
+  s" ./" match-head drop \ the base uri cannot be relative to the file being loaded
   align v_base , here to v_base
   2dup path-directory 2, 2,
 ;
@@ -51,7 +53,6 @@ dup also-wordlist exch-current ( wid.compilation.previous )
 : expand-uri-maybe ( sd.uri -- sd.uri-expanded )
   base-uri-directory nip 0= if exit then
   s" ./" match-head if expand-uri exit then
-  s" ../" match-head abort" expanded-uri-maybe: '../' is not supported"
 ;
 
 : execute-with-expanded-uri ( i*x sd.uri xt -- j*x )

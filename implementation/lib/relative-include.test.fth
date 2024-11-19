@@ -4,6 +4,9 @@ t{ s" abc/" 2dup path-directory d= -> true }t
 t{ s" abc/def" 2dup path-directory 2swap drop 4 d= -> true }t
 t{ s" /def" 2dup path-directory 2swap drop 1 d= -> true }t
 
+
+t{ 0 0 push-base-uri -> }t
+
 t{ base-uri -> 0 0 }t
 t{ base-uri-directory -> 0 0 }t
 
@@ -25,3 +28,5 @@ t{ pop-base-uri -> fn2 }t
 
 t{ base-uri -> 0 0 }t
 t{ base-uri-directory -> 0 0 }t
+
+t{ pop-base-uri -> 0 0 }t
