@@ -90,3 +90,9 @@ s" 2 3 + . cr" example.evaluate
   qtoken>compile? if execute exit then
   -32 throw \ "invalid name argument"
 ; immediate
+
+
+\ ToDo
+\ The word `synonym` shall use the perceptor to recognize its second immediate argument.
+\ It's impossible to redefine this word using the perceptor because there is no a standard postfix factor
+\ like ( nt sd.name -- ) to create a synonym for the word represented by the name token nt.
