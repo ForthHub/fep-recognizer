@@ -96,3 +96,15 @@ s" 2 3 + . cr" example.evaluate
 \ The word `synonym` shall use the perceptor to recognize its second immediate argument.
 \ It's impossible to redefine this word using the perceptor because there is no a standard postfix factor
 \ like ( nt sd.name -- ) to create a synonym for the word represented by the name token nt.
+\ Ditto for the word `to`.
+
+\ The words `is` and `action-of` can only be redefined using `defer!` and `defer@`,
+\ and this can be less effective on some systems.
+
+: is ( compil: true ; "name" --  | compile: false ; xt "name" -- )
+  '  ( xt ) tt-x  ['] defer! tt-xt
+; immediate
+
+: action-of ( "name" -- xt | )
+  '  ( xt ) tt-x  ['] defer@ tt-xt
+; immediate

@@ -14,8 +14,19 @@ include ./recognizer/index.fth
 \ An example of the Forth text interpreter
 include ./example.text-translator.fth
 \ NB: this file provides some standard words
-\ (like `'`, `[']`, `[defined]`, `[undefined]`, etc)
-\ and they may shadow the corresponding system's words in forth-wordlist
+\ and they may shadow the corresponding system's words in `forth-wordlist`.
+\ Namely, it provides implementations for the following standard words:
+\   `'` (Tick)
+\   `[']` (BracketTick)
+\   `[defined]`
+\   `[undefined]`
+\   `postpone`
+\   `is`
+\   `action-of`
+\
+\ Cannot redefine:
+\   `synonym`
+\   `to`
 
 0 [if] \ example
 
