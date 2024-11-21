@@ -80,3 +80,13 @@ s" 2 3 + . cr" example.evaluate
 : [undefined] ( "<name>" -- flag )
   parse-lexeme-sure available-xt 0=
 ; immediate
+
+
+\ The word `postpone` shall use the perceptor to recognize its immediate argument.
+\ This is a basic implementation that applies only to Forth words.
+: postpone ( "name" -- )
+  parse-lexeme-sure perceive ?found
+  compilation if postpone-qtoken exit then
+  qtoken>compile? if execute exit then
+  -32 throw \ "invalid name argument"
+; immediate
