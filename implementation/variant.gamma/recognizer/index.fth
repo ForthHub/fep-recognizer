@@ -15,3 +15,4 @@ include ./number.fth
   include ./name.fth
 [then]
 
+include ./filter.fth
