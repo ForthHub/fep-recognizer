@@ -13,6 +13,9 @@ include ./recognizer/index.fth
 
 \ An example of the Forth text interpreter
 include ./example.text-translator.fth
+\ NB: this file provides some standard words
+\ (like `'`, `[']`, `[defined]`, `[undefined]`, etc)
+\ and they may shadow the corresponding system's words in forth-wordlist
 
 0 [if] \ example
 

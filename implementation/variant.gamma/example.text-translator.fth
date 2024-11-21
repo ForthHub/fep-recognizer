@@ -65,3 +65,18 @@ s" 2 3 + . cr" example.evaluate
 : ['] ( "<name>"-- xt | )
   parse-lexeme-sure perceive qtoken>xt tt-x
 ; immediate
+
+
+
+\ The word `[defined]` shall use the perceptor to check if a word is defined,
+\ i.e., it have to check whether the lexeme is recognized as a named Forth definition.
+
+: available-xt ( sd.lexeme -- xt|0 )
+  perceptor ['] qtoken>xt? apply-recognizer-filter
+;
+: [defined] ( "<name>" -- flag )
+  parse-lexeme-sure available-xt 0<>
+; immediate
+: [undefined] ( "<name>" -- flag )
+  parse-lexeme-sure available-xt 0=
+; immediate
