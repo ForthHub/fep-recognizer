@@ -19,3 +19,16 @@
 ;
 [then]
 
+
+
+[undefined] execute-balance [if]
+: execute-balance ( any xt -- any n.data-stack.change )
+  depth 1- >r execute depth r> -
+;
+[then]
+
+[undefined] execute-balance2 [if]  [defined] fdepth [if]
+: execute-balance2 ( any xt -- any n.data-stack.change n.float-stack.change )
+  fdepth >r depth 1- >r execute depth r> -  fdepth r> -
+;
+[then] [then]

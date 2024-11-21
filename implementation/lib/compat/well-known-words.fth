@@ -32,6 +32,10 @@
 [then]
 
 [undefined] ndrop [if]
-  : ndrop ( i*x u.i -- ) 0 ?do drop loop ;
+  : ndrop ( +n.cnt*x +n.cnt -- ) 0 ?do drop loop ;
 [then]
+
+[undefined] nfdrop [if]  [defined] fdrop [if]
+  : nfdrop ( +n.cnt -- ; F: +n.cnt*r -- ) 0 ?do fdrop loop ;
+[then] [then]
 
