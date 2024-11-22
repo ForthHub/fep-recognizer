@@ -1,3 +1,5 @@
 
-include ./basic.fth
+\ include ./basic.fth
+include ./uni-assoc.fth
 
+\ include ./test.fth
