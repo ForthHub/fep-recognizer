@@ -12,13 +12,16 @@
   endcase true
 ;
 
-: postpone-qtoken ( 0|qt -- )
+: compile-postpone-qtoken ( qt -- )
   qtoken>compile? if swap lit, compile, exit then -32 throw \ "invalid name argument"
 ;
 
-: postpone ( "name" -- )
-  parse-lexeme-sure perceive ?found
-  compilation if postpone-qtoken exit then
+: translate-postpone-qtoken ( qt -- )
+  compilation if compile-postpone-qtoken exit then
   qtoken>compile? if execute exit then
   -32 throw \ "invalid name argument"
+;
+
+: postpone ( "name" -- )
+  parse-lexeme-sure perceive ?found translate-postpone-qtoken
 ; immediate
