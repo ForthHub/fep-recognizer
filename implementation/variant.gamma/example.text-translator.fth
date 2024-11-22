@@ -56,6 +56,11 @@ s" 2 3 + . cr" example.evaluate
 
 
 
+\ Implement the word `postpone` using Recognizer API
+include ./postpone/index.fth
+
+
+
 \ Implement the words `'` and `[']` using Recognizer API
 \ These words shall perceive the lexeme instead of simply trying to find it in the search order.
 
@@ -81,15 +86,6 @@ s" 2 3 + . cr" example.evaluate
   parse-lexeme-sure available-xt 0=
 ; immediate
 
-
-\ The word `postpone` shall use the perceptor to recognize its immediate argument.
-\ This is a basic implementation that applies only to Forth words.
-: postpone ( "name" -- )
-  parse-lexeme-sure perceive ?found
-  compilation if postpone-qtoken exit then
-  qtoken>compile? if execute exit then
-  -32 throw \ "invalid name argument"
-; immediate
 
 
 \ ToDo
