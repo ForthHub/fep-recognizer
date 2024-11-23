@@ -1,5 +1,5 @@
 
 \ include ./basic.fth
-include ./uni-assoc.fth
+include ./wide.via-association.fth
 
 \ include ./test.fth
