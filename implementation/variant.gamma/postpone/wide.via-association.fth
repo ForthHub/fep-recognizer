@@ -39,6 +39,3 @@ variable _list-of-postponers 0 _list-of-postponers !
   -32 throw \ "invalid name argument"
 ;
 
-: postpone ( "name" -- )
-  parse-lexeme-sure perceive ?found translate-postpone-qtoken
-; immediate

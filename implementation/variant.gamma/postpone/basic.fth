@@ -22,6 +22,3 @@
   -32 throw \ "invalid name argument"
 ;
 
-: postpone ( "name" -- )
-  parse-lexeme-sure perceive ?found translate-postpone-qtoken
-; immediate
