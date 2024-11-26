@@ -87,18 +87,19 @@ Append table XY.1 to table 3.1
 #### Table XY.1
 Symbol | Data type | Size on stack
 -- | -- | --
+any  | any tuple | 0 or more cells
 td | token descriptor | 1 cell
 tt | token translator | 1 cell
-t  | tuple | 0 or more cells
 ut | unqualified token | 0 or more cells
 qt | fully qualified token (qtoken) | 1 or more cells
 
 #### XY.3.1.1 Data-type relationships
 ```
+any => ( S: i*x  F: j*r  C: k*x )
 td => x ;
 tt => xt ;
-t => ( S: i*x F: j*r C: k*x ) ; where i >=0, j >= 0, k >= 0 ;
-ut => t ;
+tt => td ;
+ut => ( S: i*x  F: j*r ) ;
 qt => ( ut td ) ;
 ```
 
