@@ -94,14 +94,13 @@ ut | unqualified token | 0 or more cells
 qt | fully qualified token (qtoken) | 1 or more cells
 
 #### XY.3.1.1 Data-type relationships
-```
-any => ( S: i*x  F: j*r  C: k*x )
-td => x ;
-tt => xt ;
-tt => td ;
-ut => ( S: i*x  F: j*r ) ;
-qt => ( ut td ) ;
-```
+- `any => ( S: i*x  F: j*r  C: k*x )`
+- `td => x`
+- `tt => xt`
+- `tt => td`
+- `ut => ( S: i*x  F: j*r )`
+- `qt => ( ut td )`
+
 
 #### XY.3.1.x Tuple
 
