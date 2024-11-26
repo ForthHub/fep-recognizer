@@ -12,10 +12,15 @@ t{ ' noop obtain-postponer -> 0 }t
 t{ ' noop ' noop bind-postponer -> }t
 t{ ' noop obtain-postponer -> ' noop }t
 t{ ' noop obtain-postponer? -> ' noop true }t
-t{ ' tt-xt obtain-postponer -> ' pt-xt }t
-t{ ' tt-xt obtain-postponer? -> ' pt-xt true }t
 
-\ Postponing numbers
+
+\ Postponing numbers and strings using `compile-postpone-qtoken`
+t{ : p.d1 [ 123 456 ' tt-xd compile-postpone-qtoken ] ; -> }t
+t{ :noname [ p.d1 ] ; 0 swap execute -> 0 123 456 }t
+t{ : p.s1 [ s" foobar" ' tt-sd compile-postpone-qtoken ] ; -> }t
+t{ :noname [ p.s1 ] ; execute s" foobar" equals -> true }t
+
+\ Postponing numeric literals
 t{ : p.n1 postpone 123  ;  -> }t
 t{ : p.n2.imm postpone 456 ; immediate -> }t
 t{ :noname [ postpone 111 p.n1 ] ; 0 swap execute -> 0 111 123 }t
