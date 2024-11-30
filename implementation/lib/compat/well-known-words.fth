@@ -39,3 +39,11 @@
   : nfdrop ( +n.cnt -- ; F: +n.cnt*r -- ) 0 ?do fdrop loop ;
 [then] [then]
 
+
+[undefined] name> [if]
+[defined] name>xt [if]
+: name> ( nt -- xt ) name>xt ;
+[else] [defined] name>interpret [if]
+: name> ( nt -- xt ) name>interpret dup if exit then drop [: -14 throw ;] ;
+[then] [then]
+[then]
