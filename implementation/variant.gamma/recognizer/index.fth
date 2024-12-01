@@ -16,3 +16,6 @@ include ./number.fth
 [then]
 
 include ./filter.fth
+
+\ for testing all recognizers at once:
+\ include ./index.test.fth
