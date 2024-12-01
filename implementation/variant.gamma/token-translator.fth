@@ -38,3 +38,15 @@
   ?found qtoken>xt? if exit then  -32 throw \ "invalid name argument"
 ;
 
+: qtoken>compile? ( qt -- xt|nt xt.compiler true  |  qt -- qt false  |  0 -- 0 false )
+  \ Obtain the compilation pair ( xt|nt xt.compiler ) from a qualified token if possible.
+  case
+    ['] tt-nt             of  [: name>compile execute-compiling ;] endof
+    ['] tt-xt             of  ['] compile, endof
+    ['] tt-word-imm       of  ['] execute-compiling endof
+    ['] tt-word-dual      of  drop ['] execute-compiling endof
+    ['] tt-word-dual-odd  of  drop ['] compile, endof
+    false exit
+  endcase true
+;
+

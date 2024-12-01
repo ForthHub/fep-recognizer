@@ -3,10 +3,6 @@
 \ whose compilation semantics are to append their interpretation semantics.
 \ No need to define new postponers at all.
 
-[undefined] qtoken>compile? [if]
-  include ./basic.fth
-[then]
-
 
 \ Avoid using `postpone`, and use the internal word `[c]` instead.
 : [c] ( "lexeme" -- )
