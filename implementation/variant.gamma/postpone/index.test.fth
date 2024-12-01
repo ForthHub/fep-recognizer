@@ -7,6 +7,7 @@
 [then]
 
 
+.( \ Testing `postpone` on Forth definitions ) cr
 
 t{ : t1.ord 123 ;  : t2.imm 456 ; immediate -> }t
 
@@ -52,7 +53,7 @@ t{ :noname enter-compilation [ p.w3 ] compilation 0= leave-compilation ; execute
 
 
 :noname ( -- ior | 0 ) s" :noname postpone 123 ; drop "
-  ['] evaluate catch dup if postpone [ nip nip then
+  ['] evaluate catch dup if leave-compilation nip nip then
 ; execute [if] .( \ `postpone` does not apply to literals ) cr
 [else] .( \ Testing `postpone` on numeric literals ) cr
 
