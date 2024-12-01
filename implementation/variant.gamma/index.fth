@@ -3,6 +3,9 @@
 include ./recognizer-api.fth
 
 
+\ Token compilers
+include ./token-compiler.mmode.fth
+
 \ Token translators
 include ./token-translator.fth
 
