@@ -12,6 +12,7 @@ s" ./lib/bracket-if.fth" s" 0 0 [if] [else] drop -1 [then]" 4 pick execute drop
 
 include ./index.lib-compat.fth
 include ./lib/string-match.fth
+include ./lib/memory.fth \ it provides `string-copy-if-source`
 
 \ The word `find-word` and a test whether the system is dual-xt
 include ./lib/find-word.fth
