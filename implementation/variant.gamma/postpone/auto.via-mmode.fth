@@ -7,6 +7,7 @@
 
 : compile-postpone-qtoken ( qt -- )
   qtoken>compile? if swap lit, compile, exit then
+  0 0 rot ['] execute-parsing \ disallow parsing (if any)
   ['] execute-compiling execute-in-mmode
 ;
 
