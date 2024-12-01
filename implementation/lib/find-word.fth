@@ -1,11 +1,27 @@
 \ 2024-10-21 ruv
 
-: (string-counted-tmp) ( sd -- c-addr )
-  dup here c!  here char+ swap  move  here
+64 constant buf-lexeme-size
+[defined] user-create [defined] user-allot  and [if]
+  \ assuming multitasking option
+  user-create buf-lexeme-addr  buf-lexeme-size user-allot
+[else]  [defined] buffer: [if]
+  buf-lexeme-size buffer: buf-lexeme-addr
+[else]
+  align here buf-lexeme-size allot constant buf-lexeme-addr
+[then] [then]
+: buf-lexeme ( -- sd.buffer ) buf-lexeme-addr buf-lexeme-size ;
+
+: lexeme-to-cstring-tmp ( sd.lexeme -- c-addr )
+  >r buf-lexeme 2 - r@ u< if -19 throw then \ "definition name too long"
+  \ NB: `2 -` reserves space for the counter and the null-terminator
+  tuck ( a-addr.buf c-addr.lexeme a-addr.buf )  r> over c!
+  count  2dup + 0 swap c!  move
 ;
+
+
 : find-word ( sd.lexeme -- xt -1 | xt 1 | 0 )
   \ this word is state-dependent in the general case
-  (string-counted-tmp) find dup if exit then nip
+  lexeme-to-cstring-tmp find dup if exit then nip
 ;
 
 
@@ -57,7 +73,7 @@
 
 :noname ( -- flag.dual-xt )
   true
-  [ char | parse S"| ] sliteral (string-counted-tmp) (test-find-dual) and if exit then
+  [ char | parse S"| ] sliteral lexeme-to-cstring-tmp (test-find-dual) and if exit then
   c" TO"            (test-find-dual) and if exit then
   c" ACTION-OF"     (test-find-dual) and if exit then
   c" IF"            (test-find-dual) and if exit then
