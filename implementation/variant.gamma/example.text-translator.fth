@@ -45,6 +45,16 @@
   repeat 2drop
 ;
 
+: translate-input-following ( i*x -- j*x )
+  begin
+    translate-source-following
+    source-id 0= if \ the input source is the user input device
+      ."  Ok ( " depth . ." )" cr ." perceptor> "
+    then
+    refill 0=
+  until
+;
+
 [defined] execute-parsing [if]
 : example.evaluate ( i*x sd -- j*x ) ['] translate-source-following execute-parsing ;
 [then]
