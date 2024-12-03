@@ -39,6 +39,10 @@
   : nfdrop ( +n.cnt -- ; F: +n.cnt*r -- ) 0 ?do fdrop loop ;
 [then] [then]
 
+[undefined] -rot [if]
+  : -rot ( x1 x2 x3 -- x3 x1 x2 ) rot rot ;
+[then]
+
 
 [undefined] name> [if]
 [defined] name>xt [if]
