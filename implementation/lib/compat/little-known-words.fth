@@ -16,6 +16,22 @@
 [then]
 
 
+[undefined] extract-lexeme [undefined] extract-lexeme-sure  or [if]
+: extract-lexeme ( -- sd.lexeme | 0 0 )
+  begin parse-lexeme dup if exit then 2drop refill 0= until 0 0
+;
+: extract-lexeme-sure ( -- sd.lexeme )
+  extract-lexeme dup if exit then -39 throw \ "unexpected end of the input source"
+;
+[then]
+
+[undefined] extract-lexeme-before [if]
+: extract-lexeme-before ( sd.lexeme -- sd.lexeme | 0 0 )
+  \ if the parsed lexeme is the same as the given lexeme, drop it and return ( 0 0 )
+  2>r extract-lexeme-sure 2dup 2r> equals if 2drop 0 0 then
+;
+[then]
+
 
 [undefined] execute-balance [if]
 : execute-balance ( any xt -- any n.data-stack.change )
