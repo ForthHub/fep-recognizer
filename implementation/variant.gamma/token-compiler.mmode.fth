@@ -1,6 +1,6 @@
 \ NB: This file must be included (if any) before the file "token-translator.fth".
 
-[undefined] itself-rec [undefined] rec: and [if]
+[undefined] itself-rec [undefined] rec:  or [if]
   include ./../lib/itself-rec.fth
 [then]
 
