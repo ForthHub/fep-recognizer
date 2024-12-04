@@ -2,7 +2,7 @@
 
 t{ 0 0 ' abort apply-recognizer-cf -> 0 }t
 t{ "x" ' abort apply-recognizer-cf -> 0 }t
-t{ "[x" ' noop apply-recognizer-cf "x" equals -> '[' true }t
+t{ "[x" ' noop apply-recognizer-cf -rot "x" equals -> '[' true }t
 t{ "[x" :noname 2drop false ; apply-recognizer-cf -> 0 }t
 
 

@@ -8,16 +8,16 @@
 )
 
 
-: apply-recognizer-cf ( sd.lexeme recognizer -- char.color qt | 0 )
-  over 2 < if drop 2drop 0 exit then
-  >r over c@ -rot 1 /string ( char.color sd.sub-lexeme )
-  r> execute dup 0= if nip then
+: apply-recognizer-cf ( sd.lexeme recognizer -- qt char.color\0 | 0 )
+  -rot dup 2 < if 2drop drop 0 exit then
+  over c@ dup 0= if 2nip nip exit then ( recognizer sd.lexeme char.color\0 )
+  >r 1 /string rot execute dup if r> exit then rdrop
 ;
 
 : recognize-number-singlecell-colored ( sd.lexeme -- qt|0 )
   \ Reuse a recognizer for numbers
   ['] recognize-number-n-prefixed apply-recognizer-cf dup 0= if exit then
-  ['] tt-x <> abort" assertion failed: unexpected qtoken" ( char.color n ) swap
+  swap ['] tt-x <> abort" assertion failed: unexpected qtoken" ( n char.color )
   [: case
       '[' of endof
       '_' of lit, endof
@@ -28,7 +28,7 @@
 ;
 
 : recognize-name-colored ( sd.lexeme -- qt|0 )
-  ['] find-name apply-recognizer-cf dup 0= if exit then ( char.color nt ) swap
+  ['] find-name apply-recognizer-cf dup 0= if exit then ( nt char.color )
   [: case
       '[' of name> execute endof
       '_' of name>compile execute endof
