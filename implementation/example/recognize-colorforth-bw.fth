@@ -58,7 +58,7 @@
   cf.perceptor-orig set-perceptor
 ;
 : cf\\ ( any "ccc" -- any )
-  begin-cf  ['] translate-source-following catch  end-cf  throw
+  begin-cf  ['] translate-source catch  end-cf  throw
 ; immediate
 
 : cf( ( any "ccc" "<rparen>" -- any )

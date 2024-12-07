@@ -33,6 +33,6 @@ include ./example.text-translator.fth
 
 0 [if] \ example
 
-translate-source-following  2 3 + . cr
+translate-source  2 3 + . cr
 
 [then]

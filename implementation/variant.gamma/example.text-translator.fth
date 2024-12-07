@@ -38,16 +38,18 @@
 ' recognize-forth-default set-perceptor
 
 
-: translate-source-following ( i*x -- j*x )
-  \ Also known as `interpret`
+: translate-source ( i*x -- j*x )
+  \ Translate the portion of the input buffer that has not yet been parsed (the parse area).
+  \ This word is also known as `interpret`.
   begin ?stack
     parse-lexeme  dup while translate-lexeme
   repeat 2drop
 ;
 
-: translate-input-following ( i*x -- j*x )
+: translate-input ( i*x -- j*x )
+  \ Translate the input source until the end.
   begin
-    translate-source-following
+    translate-source
     source-id 0= if \ the input source is the user input device
       ."  Ok ( " depth . ." )" cr ." perceptor> "
     then
@@ -56,11 +58,11 @@
 ;
 
 [defined] execute-parsing [if]
-: example.evaluate ( i*x sd -- j*x ) ['] translate-source-following execute-parsing ;
+: example.evaluate ( i*x sd -- j*x ) ['] translate-source execute-parsing ;
 [then]
 
 0 [if] \ example
-translate-source-following  2 3 + . cr
+translate-source  2 3 + . cr
 s" 2 3 + . cr" example.evaluate
 [then]
 
