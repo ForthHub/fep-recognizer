@@ -7,6 +7,10 @@
   ] -> postpone
 )
 
+0 [if]
+\ A rewrite of the original example against the minimalistic Recognizer API,
+\ close to the original.
+
 
 : apply-recognizer-cf ( sd.lexeme recognizer -- qt char.color\0 | 0 )
   -rot dup 2 < if 2drop drop 0 exit then
@@ -42,6 +46,32 @@
   2dup 2>r recognize-name-colored dup if 2rdrop exit then drop
   2r> recognize-number-singlecell-colored
 ;
+
+
+
+[else]
+\ A simpler implementation of the original example against the minimalistic Recognizer API.
+\ https://forth-standard.org/proposals/minimalistic-core-api-for-recognizers#reply-1397
+
+: cf-prefix>tt? ( c -- tt true | c false )
+  case
+    '[' of ['] execute-interpreting endof
+    '_' of ['] execute-compiling endof
+    ']' of ['] compile-postpone-qtoken endof
+    0 exit
+  endcase true
+;
+
+defer recognize-default  perceptor is recognize-default
+
+: recognize-colorforth-bw ( sd.lexeme -- qt|0 )
+  dup 0= if nip exit then
+  over c@ cf-prefix>tt? 0= if drop 2drop 0 exit then
+  >r 1 /string recognize-default dup if r> exit then rdrop
+;
+
+
+[then]
 
 
 
