@@ -47,24 +47,16 @@
 
 \ A text translator for testing purposes
 
-0 value cf.perceptor-orig
-
-: begin-cf
-  ['] recognize-colorforth-bw perceptor
-  2dup = if 2drop exit then ( recognizer.cf recognizer.perceptor )
-  to cf.perceptor-orig  set-perceptor
-;
-: end-cf
-  cf.perceptor-orig set-perceptor
-;
 : cf\\ ( any "ccc" -- any )
-  begin-cf  ['] translate-source catch  end-cf  throw
+  \ Translate the remaining part of the input buffer in the colorforth-bw mode.
+  ['] translate-source
+  ['] recognize-colorforth-bw apply-perceptor
 ; immediate
 
 : cf( ( any "ccc" "<rparen>" -- any )
-  begin-cf
+  \ Translate the input source till ')' in the colorforth-bw mode.
   [: begin s" )" extract-lexeme-before dup while translate-lexeme repeat 2drop ;]
-  catch  end-cf  throw
+  ['] recognize-colorforth-bw apply-perceptor
 ; immediate
 
 0 [if] \ Usage example
