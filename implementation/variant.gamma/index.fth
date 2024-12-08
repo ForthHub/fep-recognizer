@@ -1,6 +1,7 @@
 
 \ Recognizer API
 include ./recognizer-api.fth
+include ./recognizer-api-ext.fth
 
 
 \ Token compilers
