@@ -1,3 +1,7 @@
+\ A `find`-based recognizer of Forth words
+\ for a dual-xt system (so, `find` is `state`-dependent).
+\ This makes sense when `find-name` cannot be provided
+\ because the dual-nt approach is used, as in the cmForth system.
 
 \ DataType ( xt tt-xt ) => qt
 \ DataType ( xt tt-word-imm ) => qt
@@ -6,7 +10,9 @@
 \ DataType ( xt.run-time xt.interp tt-word-dual-odd ) => qt
 \ DataType ( xt tt-wrong-find ) => qt
 
-\ for a dual-xt system
+\ The word `find-word ( sd.lexeme -- xt -1 | xt 1 | 0 )`
+\ is defined in "../../lib/find-word.fth".
+\ This word is `state`-dependent in a dual-xt system.
 
 : recognize-word ( sd.lexeme -- 0
     | xt tt-xt
